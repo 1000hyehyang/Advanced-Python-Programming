@@ -1,6 +1,6 @@
 # 함수 실습 p.4
 
-def personal_info(file, search, how):
+def personal_info(file, search, how=None):
     def file_open():
         f = open(file, "r")
         data = f.read()
@@ -17,7 +17,7 @@ def personal_info(file, search, how):
             i += 1
         j = 0
         lst_new = []
-        if how > len(lst) or how == "":
+        if how is None or how > len(lst):
             result = "\n".join(lst)
             print(result)
         else:
@@ -32,11 +32,11 @@ def personal_info(file, search, how):
         lst = []
         while i < len(data):
             if "Age" in data[i]:
-                lst.append(data[j])
+                lst.append(data[i])  
             i += 1
         j = 0
         lst_new = []
-        if how > len(lst) or how == "":
+        if how is None or how > len(lst):
             result = "\n".join(lst)
             print(result)
         else:
@@ -55,7 +55,7 @@ def personal_info(file, search, how):
             i += 1
         j = 0
         lst_new = []
-        if how > len(lst) or how == "":
+        if how is None or how > len(lst):
             result = "\n".join(lst)
             print(result)
         else:
@@ -68,13 +68,13 @@ def personal_info(file, search, how):
     d = file_open()
     if search == "이름":
         name(d)
-    elif search ==" 나이":
+    elif search == "나이":
         age(d)
     elif search == "전화번호":
         phone(d)
 
 
-
 # personal_info("Personal_info.txt", "이름", 2)
 # personal_info("Personal_info.txt", "나이")
 # personal_info("Personal_info.txt", "전화번호")
+
