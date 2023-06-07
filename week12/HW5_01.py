@@ -6,8 +6,8 @@
 def read():
     f = open("score.txt", "r")
     data = f.read()
-    return data
     f.close()
+    return data
 
 def arrange(data):
     new_data = data.split('\n')
